@@ -126,22 +126,17 @@ all.config
 # fetched Android config fragments
 kernel/configs/android-*.cfg
 
-include/linux/oem
-drivers/oem_debug
-drivers/param_read_write
-drivers/input/oneplus_touchscreen
-drivers/input/fingerprint
-fs/exfat
-fs/proc/adj_chain_stat.c
-fs/proc/fg_uid.c
-fs/proc/fg_uid.h
-mm/memory_monitor.c
+*.rej
+*.diff
+*.patch
+*.list
 
-# OP SLA feature
-opslalib/slalib
+# Kernel compilation output directory
+out/
 
-#front camera motor and hall
-drivers/step_motor
-drivers/tri_state_key
-drivers/oneplus
-drivers/vibrator
+# Wireguard
+net/wireguard/
+
+# Build script and changelog generator
+build.sh
+changelog.sh
