@@ -1257,7 +1257,7 @@ static struct module_attribute *modinfo_attrs[] = {
 
 static const char vermagic[] = VERMAGIC_STRING;
 
-static int try_to_force_load(struct module *mod, const char *reason)
+/*static int try_to_force_load(struct module *mod, const char *reason)
 {
 #ifdef CONFIG_MODULE_FORCE_LOAD
 	if (!test_taint(TAINT_FORCED_MODULE))
@@ -1267,7 +1267,7 @@ static int try_to_force_load(struct module *mod, const char *reason)
 #else
 	return -ENOEXEC;
 #endif
-}
+}*/
 
 #ifdef CONFIG_MODVERSIONS
 
@@ -1291,8 +1291,8 @@ static int check_version(const struct load_info *info,
 		return 1;
 
 	/* No versions at all?  modprobe --force does this. */
-	if (versindex == 0)
-		return try_to_force_load(mod, symname) == 0;
+	//if (versindex == 0)
+		//return try_to_force_load(mod, symname) == 0;
 
 	versions = (void *) sechdrs[versindex].sh_addr;
 	num_versions = sechdrs[versindex].sh_size
@@ -3244,8 +3244,8 @@ static int check_module_license_and_versions(struct module *mod)
 	    || (mod->num_unused_gpl_syms && !mod->unused_gpl_crcs)
 #endif
 		) {
-		return try_to_force_load(mod,
-					 "no versions for exported symbols");
+		//return try_to_force_load(mod,
+					 //"no versions for exported symbols");
 	}
 #endif
 	return 0;
